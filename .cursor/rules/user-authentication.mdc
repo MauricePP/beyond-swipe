@@ -1,0 +1,11 @@
+---
+description: for all questions regarding authentication
+globs: 
+alwaysApply: false
+---
+- Use Supabase Auth for all authentication flows
+- Implement proper role-based access control
+- Create protected routes for authenticated content
+- Store user preferences and settings
+- Handle social authentication methods
+- Implement password reset and email verification

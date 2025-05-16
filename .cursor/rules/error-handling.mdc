@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Implement global error boundary
+- Create consistent error state components
+- Log errors to monitoring service
+- Handle network failures gracefully
+- Provide user-friendly error messages
+- Implement retry mechanisms where appropriate

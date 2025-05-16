@@ -1,0 +1,214 @@
+---
+description: when deciding on how to technically design a feature
+globs: 
+alwaysApply: false
+---
+Beyond Swipes - Technical Architecture Overview
+Architecture Overview
+The Beyond Swipes dating app follows a modern, scalable architecture built on React Native for cross-platform mobile development, with Supabase as the backend platform and Stripe for payment processing. This document outlines the key architectural components and their interactions.
+┌───────────────────────────────────────────────────────────────┐
+│                     Mobile Application                        │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐    │
+│  │   UI Layer  │  │ State Mgmt  │  │ Navigation & Routing│    │
+│  └─────────────┘  └─────────────┘  └─────────────────────┘    │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐    │
+│  │  API Layer  │  │ Local Cache │  │ Native Integrations │    │
+│  └─────────────┘  └─────────────┘  └─────────────────────┘    │
+└───────────┬───────────────────────────────────────┬───────────┘
+            │                                       │
+┌───────────▼───────────┐               ┌───────────▼───────────┐
+│  Supabase Backend     │               │  Third-Party Services │
+│  ┌─────────────────┐  │               │  ┌─────────────────┐  │
+│  │ Authentication  │  │               │  │     Stripe      │  │
+│  └─────────────────┘  │               │  └─────────────────┘  │
+│  ┌─────────────────┐  │               │  ┌─────────────────┐  │
+│  │    Database     │  │               │  │Push Notifications│  │
+│  └─────────────────┘  │               │  └─────────────────┘  │
+│  ┌─────────────────┐  │               │  ┌─────────────────┐  │
+│  │  Storage (S3)   │  │               │  │  Mapping APIs   │  │
+│  └─────────────────┘  │               │  └─────────────────┘  │
+│  ┌─────────────────┐  │               │  ┌─────────────────┐  │
+│  │ Edge Functions  │  │               │  │   Analytics     │  │
+│  └─────────────────┘  │               │  └─────────────────┘  │
+└───────────────────────┘               └───────────────────────┘
+Client Application (React Native)
+Core Technologies
+React Native: v0.72+ for cross-platform (iOS/Android) development
+TypeScript: For type safety and improved developer experience
+Expo: Managed workflow for simplified development and deployment
+React Navigation: For app navigation and routing
+Architecture Pattern
+The client follows a modified Clean Architecture with the following layers:
+UI Layer
+React Native components organized using Atomic Design principles
+Screen components for each major app view
+Styled components with consistent theming
+Platform-specific adaptations where necessary
+State Management
+Redux Toolkit for global state management
+React Query for server state and API caching
+Context API for localized component states
+API Layer
+Custom hooks for API interactions
+Supabase client integration
+Axios for additional API calls
+Request/response interceptors
+Navigation
+Tab navigation for main sections
+Stack navigation for workflows
+Deep linking support
+Storage Layer
+AsyncStorage for persistent local data
+Secure storage for sensitive information
+Image caching strategies
+Key Features Implementation
+Authentication Flow
+Phone number authentication with OTP
+Social login options (Google, Apple)
+JWT token management and refresh strategies
+Profile Management
+Multi-step profile creation wizard
+Photo upload with compression and cropping
+Preference settings and search criteria
+Discovery Engine
+Virtualized list for smooth scrolling
+Preloading strategies for images
+Progressive loading of user data
+Geolocation-based filtering
+Match Algorithm
+Local state tracking for likes
+Optimistic UI updates
+Real-time match notifications
+Date Planning
+Calendar integration
+Location selection with map integration
+Scheduling workflow
+Safety Features
+Emergency contact management
+Location sharing with permissions
+Safety check-in notifications
+Premium Features
+Stripe integration for subscription management
+Feature gating based on subscription status
+Trial period management
+Backend Architecture (Supabase)
+Core Components
+Authentication
+Phone authentication with OTP
+Social provider integration
+Row-level security policies
+Custom claims for premium status
+Database Schema
+PostgreSQL with the following key tables:
+users: Core user profiles
+user_preferences: Dating preferences and settings
+user_photos: References to stored images
+likes: Tracking like interactions
+matches: Confirmed matches
+date_proposals: Suggested meetings
+date_confirmations: Confirmed dates
+subscriptions: Premium subscription status
+Storage
+S3-compatible storage for:
+Profile photos (multiple resolutions)
+Verification documents
+Temporary media
+Supabase Edge Functions
+Match processing logic
+Notification triggers
+Recommendation engine
+Periodic cleanup tasks
+Real-time Features
+Subscriptions for match notifications
+Real-time status updates for dates
+Safety check-in confirmations
+Database Security
+Row-level security (RLS) policies for all tables
+Column-level permissions for sensitive data
+Data access auditing and monitoring
+Regular backup strategies
+Payment Processing (Stripe)
+Integration Architecture
+Stripe Elements for payment UI
+Customer portal for subscription management
+Server-side Stripe API integration via Edge Functions
+Subscription Management
+Tiered premium plans
+Free trial period management
+Subscription status synchronization with Supabase
+Payment Security
+PCI compliance through Stripe Elements
+Secure handling of payment tokens
+Webhooks for status updates
+Third-Party Services
+Push Notifications
+Firebase Cloud Messaging (FCM) for Android
+Apple Push Notification Service (APNS) for iOS
+Notification management and categorization
+Geolocation & Mapping
+Google Maps API for location display
+Geocoding for address information
+Places API for venue suggestions
+Analytics & Monitoring
+Mixpanel for user behavior analytics
+Sentry for error tracking
+Firebase Performance Monitoring
+Content Moderation
+AI-based photo screening
+User reporting system
+Manual review workflows
+Development & Deployment Pipeline
+Development Environment
+Expo development tools
+Local Supabase instance for development
+Stripe test environment
+CI/CD Pipeline
+GitHub Actions for automated testing
+EAS Build for native app builds
+Automated deployment to app stores
+Testing Strategy
+Jest for unit testing
+React Testing Library for component tests
+Detox for end-to-end testing
+Supabase local testing
+Monitoring & Logging
+Centralized logging with structured data
+Performance metrics gathering
+Alerting system for critical issues
+Security Considerations
+Data Protection
+End-to-end encryption for sensitive communications
+Data minimization principles
+Regular security audits
+Compliance
+GDPR compliance for European users
+CCPA compliance for California users
+Age verification mechanisms
+Safety Measures
+User verification options
+Suspicious activity detection
+Blocking and reporting mechanisms
+Scalability Considerations
+Performance Optimization
+Image optimization and CDN distribution
+Database query optimization
+API response caching
+Geographic Expansion
+Multi-region database planning
+Location-based feature customization
+Internationalization framework
+Load Management
+Supabase pooling configuration
+Rate limiting strategies
+Graceful degradation patterns
+Offline Capabilities
+Offline Mode
+Critical data caching
+Queue for pending actions
+Synchronization upon reconnection
+Network Resilience
+Retry strategies for failed requests
+Conflict resolution for offline changes
+Background synchronization
+
+

@@ -1,0 +1,11 @@
+---
+description: for database queries and database structuring
+globs: 
+alwaysApply: false
+---
+- Create typed API hooks for all Supabase interactions
+- Implement proper error handling for all API calls
+- Cache appropriate data client-side
+- Use webhooks for handling payment events
+- Structure database queries for optimal performance
+- Apply row-level security for all database access

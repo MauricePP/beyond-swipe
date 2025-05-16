@@ -1,0 +1,13 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use ESLint with strict rules
+- Apply Prettier for code formatting
+- Write JSDoc comments for all functions
+- Create README files for major features
+- Document API interfaces with TypeScript
+- Use meaningful variable and function names
+- Avoid having files greater than 500 lines.
+- If you find files with more than 500 lines suggest refactoring, but don't do it without being order to to so.

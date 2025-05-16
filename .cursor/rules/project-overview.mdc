@@ -1,0 +1,71 @@
+---
+description: for anything regarding features and product direction
+globs: 
+alwaysApply: false
+---
+Product Overview
+Beyond Swipes is a revolutionary dating app designed to transform online connections into real-world relationships. Unlike traditional dating platforms where endless messaging leads nowhere, our app creates a streamlined path from matching to meeting.
+Unique Selling Proposition
+Beyond Swipes eliminates the endless chat loop that frustrates dating app users. Our innovative three-like matching system and structured date-setting workflow ensure that connections lead to actual dates, not just digital pen pals. We've replaced open-ended messaging with purposeful interaction focused on meeting in person.
+Core Features
+Thoughtful Profile Creation
+Comprehensive profiles including age, location, political views, hobbies, smoking status, and relationship goals
+Customizable search parameters including geographic radius
+Preference-based "wish list" with up to 2 "must-haves" and 4 "nice-to-haves"
+Rich visual storytelling through 3-10 high-quality photos
+Instagram-Style Discovery
+Visual-first browsing experience with seamless scrolling
+Simple right/left swiping mechanism for interest indication
+Progressive matching system with engaging animations for repeated likes
+Match occurs only after mutual third-like, indicating serious interest
+Intelligent Match Algorithm
+Increased visibility for mutual interest
+Reduced visibility for disliked profiles
+Location-based suggestions prioritizing proximity
+Action-Oriented Communication
+No traditional chat functionality
+Direct date proposal system
+Collaborative scheduling with counterproposal capabilities
+Premium users gain access to complete photo galleries
+Date Verification System
+Simple check-in feature to confirm when dates occur
+Push notification reminders before scheduled meetings
+Optional private photo capture to commemorate successful dates
+Anonymous match quality verification to improve system algorithms
+Post-Date Rating & Feedback
+Structured rating system for date experiences (not visible to the other user)
+Specific feedback categories: Punctuality, Profile Accuracy, Conversation Quality, etc.
+Data-driven insights to improve future matches
+Optional testimonials for successful connections
+Comprehensive Safety Features
+Emergency contact setup with one-tap alert system
+Location sharing with trusted contacts during dates
+Date details sharing option with selected friends
+Discreet in-app safety check-ins during dates
+Partnership with local safety resources
+Premium Membership Benefits
+Full access to all photos from matches (beyond the initial three)
+See who has liked you before you like them
+Advanced filters for more precise matching
+Priority visibility in the discovery feed
+Ad-free experience with exclusive design themes
+Date venue suggestions and potential discounts with partner establishments
+Feedback-Driven Improvement
+Post-match cancellation surveys
+Date verification questions
+Structured feedback collection for platform enhancement
+Design & Experience
+The app features a clean, photo-centric interface inspired by Instagram's visual browsing experience, but oriented toward creating meaningful connections. The aesthetic is modern and sophisticated, appealing to users serious about finding relationships rather than casual browsing.
+Tone & Language
+Beyond Swipes uses direct, action-oriented language that emphasizes real-world connections. The app's communication avoids flowery dating clichés, instead using clear, straightforward prompts like:
+"Suggest a meeting place" rather than "Where would you like to meet?"
+"Accept date" rather than "Are you interested in this date?"
+"Propose alternative" rather than "Would you prefer something else?"
+This straightforward tone reinforces the app's purpose: moving beyond digital interaction to real-world connection.
+Implementation Priorities
+Core Matching System: The three-like system and date proposal workflow are the foundational differentiators
+Safety Infrastructure: Implement comprehensive safety features from day one to build trust
+Visual Experience: Create a polished, photo-forward interface that encourages quality visual storytelling
+Verification Systems: Establish date verification and feedback systems to ensure platform integrity
+Premium Features: Develop value-added features that enhance the experience without creating a two-tier system
+The Beyond Swipes platform represents a paradigm shift in online dating by focusing on the end goal—meaningful in-person connections—rather than endless digital interaction. By implementing structured pathways to meeting and robust safety systems, the app provides a refreshing alternative in a market saturated with chat-first applications.

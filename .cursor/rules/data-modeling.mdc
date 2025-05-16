@@ -1,0 +1,12 @@
+---
+description: rules concerning data modeling
+globs: 
+alwaysApply: false
+---
+- Design normalized database schema
+- Use proper foreign key relationships
+- Implement composite indexes for common queries
+- Create views for complex data aggregations
+- Apply appropriate constraints for data integrity
+- Use enums for fixed value sets
+- Give table/column descriptions where possible

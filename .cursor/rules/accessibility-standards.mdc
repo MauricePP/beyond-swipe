@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+- Implement proper ARIA attributes
+- Ensure keyboard navigation throughout app
+- Maintain sufficient color contrast
+- Use semantic HTML5 elements
+- Implement focus management for modals
+
+- Test with screen readers

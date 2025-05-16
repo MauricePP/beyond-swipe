@@ -1,0 +1,11 @@
+---
+description: for layouting features
+globs: 
+alwaysApply: false
+---
+- Use mobile-first approach for CSS
+- Implement fluid typography
+- Create responsive breakpoints at standard device sizes
+- Use CSS Grid for layout structure
+- Implement touch-friendly controls for mobile
+- Test on real devices across screen sizes

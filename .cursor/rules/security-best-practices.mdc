@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Sanitize all user inputs
+- Implement CSRF protection
+- Use proper content security policy
+- Store sensitive information in environment variables
+- Validate all API requests server-side
+- Implement rate limiting for public endpoints

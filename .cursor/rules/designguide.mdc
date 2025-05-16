@@ -1,0 +1,228 @@
+---
+description: when editing or creating features visible to the end user
+globs: 
+alwaysApply: false
+---
+Beyond Swipes - Style Guide
+Overview
+This style guide establishes the visual identity, interaction patterns, and development standards for the Beyond Swipes dating app. It ensures consistency across both iOS and Android platforms while creating a distinctive, premium experience focused on meaningful connections.
+Brand Identity
+Brand Values
+Authenticity: Encouraging genuine self-presentation
+Intention: Focusing on purposeful dating leading to real meetings
+Safety: Prioritizing user well-being and security
+Clarity: Direct communication without ambiguity
+Quality: Elevating the dating experience through thoughtful design
+Logo
+Main logo: Stylized hourglass shape symbolizing valuable time and real connections
+App icon: Simplified hourglass on gradient background (purple to coral)
+Minimum clear space: Equal to height of hourglass symbol on all sides
+Never skew, rotate, or alter the logo proportions
+Brand Colors
+Primary Palette
+Deep Purple (#5C33B8): Primary brand color, used for main actions and brand elements
+RGB: 92, 51, 184
+Coral (#FF6B6B): Accent color for highlights and important actions
+RGB: 255, 107, 107
+Midnight Blue (#192140): Dark backgrounds, headers
+RGB: 25, 33, 64
+Secondary Palette
+Lavender (#A98CFF): Secondary accent, notifications
+RGB: 169, 140, 255
+Soft Coral (#FFA5A5): Secondary highlights
+RGB: 255, 165, 165
+Light Gray (#F5F5F7): Backgrounds, cards
+RGB: 245, 245, 247
+Functional Colors
+Success (#39D98A): Confirmed dates, positive actions
+RGB: 57, 217, 138
+Warning (#FFCD4E): Notifications, pending actions
+RGB: 255, 205, 78
+Error (#E53935): Rejections, errors, alerts
+RGB: 229, 57, 53
+Typography
+iOS
+Primary Font: SF Pro Display
+Secondary Font: SF Pro Text
+Android
+Primary Font: Roboto
+Secondary Font: Roboto Condensed
+Font Styles
+Headers
+H1: 24pt, Bold, tracking -0.5
+H2: 20pt, Bold, tracking -0.3
+H3: 18pt, Semibold, tracking 0
+Body Text
+Regular: 16pt, Regular, tracking 0
+Small: 14pt, Regular, tracking 0.1
+Buttons
+Large: 18pt, Medium, tracking 0.5, all caps
+Regular: 16pt, Medium, tracking 0.5
+Small: 14pt, Medium, tracking 0.5
+User Interface Elements
+Cards
+Rounded corners: 12dp radius
+Elevation: Subtle shadow (2dp for standard cards, 4dp for active cards)
+Image aspect ratio: 3:4 (vertical)
+Card padding: 16dp
+Buttons
+Primary Button
+Background: Deep Purple (#5C33B8)
+Text: White (#FFFFFF)
+Height: 48dp
+Corner radius: 24dp
+State changes: 0.9 opacity on press
+Secondary Button
+Border: 2dp Deep Purple (#5C33B8)
+Text: Deep Purple (#5C33B8)
+Height: 48dp
+Corner radius: 24dp
+Tertiary Button
+Text only: Deep Purple (#5C33B8)
+Underline on hover/press
+Icons
+Line weight: 2dp
+Size: 24 × 24dp (standard), 20 × 20dp (compact)
+Style: Rounded corners, consistent with brand aesthetic
+Active state: Filled version of outline icons
+Touch target: Minimum 44 × 44dp
+Input Fields
+Height: 56dp
+Corner radius: 8dp
+Border: 1dp, Light Gray (#D8D8D8)
+Active border: 2dp, Deep Purple (#5C33B8)
+Label: 14pt, positioned above field
+Helper text: 12pt, below field
+Navigation
+Bottom navigation bar: 56dp height
+Selected tab: Deep Purple icon, small indicator dot
+Unselected tab: 60% opacity
+Interaction Patterns
+Animations
+Duration: 300ms for standard transitions
+Easing: Ease-in-out for most animations
+Like animation: Heart pulse (scale 1.0 to 1.2 to 1.0)
+Second like: Sparkle effect radiating from heart
+Third like/Match: Confetti animation with haptic feedback
+Gestures
+Swipe right: Like (subtle resistance that increases with swipe distance)
+Swipe left: Dislike
+Tap photo: Enlarge photo view
+Long press: Show profile snippet
+Pull down: Refresh feed
+Transitions
+Screen transitions: Horizontal slide for navigation flow
+Modal dialogs: Fade up from bottom
+Photo browser: Cross-fade between images
+Match notification: Scale up with celebration animation
+Writing Guidelines
+Tone
+Direct and clear
+Positive and encouraging
+Concise without being abrupt
+Professional but warm
+Action-oriented
+Terminology
+Use
+Don't Use
+Suggest a date
+Chat
+Select a place
+Where do you want to go?
+Propose time
+When are you free?
+Accept
+I'm interested
+Match
+Connection
+Profile
+Bio
+
+Messaging Patterns
+Error messages: Clear problem + solution format
+Success messages: Confirmation + next step
+Notifications: Action verb + object + time frame
+Error Message Examples
+"Unable to set date. Please select a time in the future."
+"Profile incomplete. Add at least 3 photos to continue."
+"Location services needed. Enable in settings to see nearby matches."
+Platform-Specific Guidelines
+iOS
+Follow iOS Human Interface Guidelines
+Support Dynamic Type
+Implement Dark Mode
+Use SF Symbols for icons where possible
+Support standard iOS gestures
+Android
+Follow Material Design guidelines
+Support adaptive icons
+Implement themed app shortcuts
+Support system back button behavior
+Use appropriate edge-to-edge display handling
+Accessibility Standards
+Minimum touch targets: 44 × 44dp
+Color contrast ratio: 4.5:1 minimum (AA standard)
+Support screen readers (VoiceOver and TalkBack)
+Alternative text for all images
+Non-color indicators for important statuses
+Technical Specifications
+React Native Standards
+Component structure:
+Atomic design principles (atoms, molecules, organisms)
+Functional components with hooks
+TypeScript for type safety
+State management:
+Redux for global state
+Context API for localized state
+Redux-Persist for offline capabilities
+Navigation:
+React Navigation v6+
+Stack, Tab, and Drawer navigators as appropriate
+Performance Guidelines
+Lazy loading for images
+Virtualized lists for long scrolling views
+Memoization for expensive computations
+Debouncing for search inputs
+Image optimization (resolution appropriate to display)
+Testing Standards
+Unit tests for business logic (Jest)
+Component tests (React Testing Library)
+End-to-end tests (Detox)
+Minimum 80% test coverage for core functionality
+Feature-Specific Design Patterns
+Profile Creation Flow
+Progressive disclosure: Break into manageable sections
+Visualize progress: Step indicator
+Save progress: Allow returning to complete later
+Validation: Immediate feedback on entries
+Match Process
+Like indicators: Subtle animations for first like
+Second like: More noticeable animation
+Third like/Match: Celebratory full-screen animation
+Match screen: Show the three liked photos prominently
+Date Planning Interface
+Date suggestion form: Clean, minimal, focused fields
+Location selection: Integrated map component
+Time selection: Custom date/time picker matching app style
+Confirmation screen: Clear summary with prominent accept/decline buttons
+Safety Features
+Emergency button: Persistent but unobtrusive
+Location sharing: Clear status indicators
+Safety check-ins: Non-intrusive notifications
+Documentation: Easily accessible safety guidelines
+Animation Specifications
+Like Animation
+First like: Heart icon scales 1.0 to 1.2 to 1.0 (300ms)
+Second like: Heart icon scales with added sparkle effect radiating outward
+Third like/Match: Full-screen celebration with confetti and haptic feedback
+Date Confirmation
+Calendar animation: Date circles and connects to timeline
+Success state: Checkmark with radial confirmation animation
+Safety Check-in
+Subtle pulse animation for reminders
+Quick-action slide-to-confirm for check-in responses
+Future Considerations
+AR filters for profile photos (Phase 2)
+Dark mode implementation strategy
+Localization standards for international markets
+Tablet/large screen adaptation guidelines

@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Create reusable base components for UI primitives
+- Implement controlled components for all form elements
+- Use compound components for complex interactive elements
+- Create Context Providers for state that spans multiple components
+- Build Higher Order Components only when necessary for cross-cutting concerns
+- Implement proper React key management for all dynamic lists

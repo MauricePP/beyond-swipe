@@ -1,0 +1,11 @@
+---
+description: for features concerning payment processing
+globs: 
+alwaysApply: false
+---
+- Integrate Stripe for payment processing
+- Implement webhook handlers for payment events
+- Create proper order history storage
+- Build receipt generation system
+- Handle payment failures gracefully
+- Implement proper tax calculation

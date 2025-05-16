@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use Next.js with App Router for React frontend
+- Structure code in feature-based organization pattern
+- Follow atomic design for component hierarchy
+- Maintain strict separation between UI components and business logic
+- Use Supabase for all backend functionality (auth, database, storage)
+- Implement TypeScript with strict type checking

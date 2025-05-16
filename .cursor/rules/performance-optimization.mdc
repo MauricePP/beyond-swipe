@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use dynamic imports for code splitting
+- Implement server-side rendering for SEO-critical pages
+- Lazy load below-the-fold content
+- Optimize image loading with Next.js Image component
+- Implement proper caching headers
+- Use skeleton loaders for async content

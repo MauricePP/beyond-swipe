@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use React Query for server state management
+- Implement React Context for global UI state
+- Keep component state local when possible
+- Use reducers for complex state logic
+- Prefer immutable state updates
+- Apply optimistic UI updates for actions with high confidence

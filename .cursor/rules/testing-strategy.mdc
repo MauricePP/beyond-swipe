@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Write unit tests for all business logic
+- Create component tests with React Testing Library
+- Implement E2E tests for critical user flows
+- Test responsive layouts across breakpoints
+- Create integration tests for API interactions
+- Use mock service worker for API testing

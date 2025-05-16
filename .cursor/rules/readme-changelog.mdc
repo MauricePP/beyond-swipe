@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+* Always keep the readme.md up to date
+* always keep the changelog.md up to date whenever changes are made to the code base include a summary of what code was changed and why
+* Always keep memory.md up to date with the latest changes and status of the project and more importantly the lessons learnt from previous sessions
+* Do not add dates to the changelog.md or memory.md
+* Create any of these files if they are missing
