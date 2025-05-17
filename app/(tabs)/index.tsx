@@ -169,10 +169,7 @@ export default function DiscoveryScreen() {
             source={{ uri: profile.photos[0] }}
             style={styles.profileImage}
             resizeMode="cover"
-            onError={(error) => console.warn('Image loading error:', error.nativeEvent.error)}
-            onLoadStart={() => console.log('Image loading started')}
-            onLoadEnd={() => console.log('Image loading ended')}
-            timeout={IMAGE_LOAD_TIMEOUT}
+            onError={() => {}}
           />
           
           <LinearGradient
@@ -304,16 +301,12 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   profileCard: {
-    width: width * 0.95,
-    height: '100%',
+    width: width - 32,
+    height: PROFILE_HEIGHT,
     borderRadius: 20,
     overflow: 'hidden',
     backgroundColor: Colors.background.paper,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 5,
+    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)',
   },
   profileImage: {
     width: '100%',
@@ -406,14 +399,10 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
+    backgroundColor: Colors.background.paper,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
-    marginHorizontal: 20,
+    boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.3)',
   },
   likeButton: {
     backgroundColor: Colors.primary.main,

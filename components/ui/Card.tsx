@@ -30,24 +30,15 @@ const styles = StyleSheet.create({
     // No shadow
   },
   lowElevation: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.1)',
     elevation: 2,
   },
   mediumElevation: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 3.84,
+    boxShadow: '0px 2px 3.84px rgba(0, 0, 0, 0.15)',
     elevation: 4,
   },
   highElevation: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5.46,
+    boxShadow: '0px 4px 5.46px rgba(0, 0, 0, 0.2)',
     elevation: 8,
   },
 });

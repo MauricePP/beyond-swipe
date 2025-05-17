@@ -19,10 +19,7 @@ export default function TabLayout() {
           backgroundColor: Colors.background.paper,
           borderTopColor: Colors.divider,
           elevation: 8,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: -2 },
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
+          boxShadow: '0px -2px 3px rgba(0, 0, 0, 0.1)',
         },
         tabBarLabelStyle: {
           fontFamily: Typography.fontFamily.primary,
@@ -39,7 +36,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Discover',
-          tabBarIcon: ({ color, focused }) => <Search size={24} color={color} />,
+          tabBarIcon: ({ color }) => <Search size={24} color={color} />,
         }}
       />
       <Tabs.Screen
