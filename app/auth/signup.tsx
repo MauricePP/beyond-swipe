@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { useAppDispatch } from '../../store';
 import { setUser } from '../../store/slices/userSlice';
@@ -8,13 +8,8 @@ import Typography from '../../constants/Typography';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../../lib/supabase';
 import * as Haptics from 'expo-haptics';
-
-// Initialize Supabase client
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function SignupScreen() {
   const router = useRouter();
@@ -24,6 +19,12 @@ export default function SignupScreen() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const triggerHaptic = async (type: Haptics.NotificationFeedbackType) => {
+    if (Platform.OS !== 'web') {
+      await Haptics.notificationAsync(type);
+    }
+  };
 
   const handleSignup = async () => {
     if (!email || !password || !confirmPassword) {
@@ -68,12 +69,12 @@ export default function SignupScreen() {
           email: data.user.email!,
         }));
 
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        await triggerHaptic(Haptics.NotificationFeedbackType.Success);
         router.replace('/onboarding');
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred during signup');
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      await triggerHaptic(Haptics.NotificationFeedbackType.Error);
     } finally {
       setLoading(false);
     }

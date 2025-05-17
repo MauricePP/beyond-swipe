@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import Colors from '../../constants/Colors';
 import Typography from '../../constants/Typography';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../../lib/supabase';
 import * as Haptics from 'expo-haptics';
-
-// Initialize Supabase client
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function ResetPasswordScreen() {
   const router = useRouter();
@@ -20,6 +15,12 @@ export default function ResetPasswordScreen() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+
+  const triggerHaptic = async (type: Haptics.NotificationFeedbackType) => {
+    if (Platform.OS !== 'web') {
+      await Haptics.notificationAsync(type);
+    }
+  };
 
   const handleResetPassword = async () => {
     if (!email) {
@@ -39,10 +40,10 @@ export default function ResetPasswordScreen() {
       if (error) throw error;
 
       setSuccess(true);
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      await triggerHaptic(Haptics.NotificationFeedbackType.Success);
     } catch (err: any) {
       setError(err.message || 'An error occurred while resetting password');
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      await triggerHaptic(Haptics.NotificationFeedbackType.Error);
     } finally {
       setLoading(false);
     }
