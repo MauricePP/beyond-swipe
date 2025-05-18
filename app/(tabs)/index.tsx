@@ -16,7 +16,7 @@ import { likeProfile, dislikeProfile, refreshDiscoveryFeed } from '../../store/s
 import { addPendingMatch } from '../../store/slices/matchesSlice';
 import Colors from '../../constants/Colors';
 import Typography from '../../constants/Typography';
-import Button from '../../components/ui/Button';
+import { Button } from '../../components/ui/Button';
 import { Heart, X } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -27,6 +27,25 @@ const PROFILE_HEIGHT = height * 0.8;
 
 // Add timeout configuration
 const IMAGE_LOAD_TIMEOUT = 10000; // 10 seconds
+
+interface EmptyStateProps {
+  onRefresh: () => void;
+}
+
+const EmptyState = ({ onRefresh }: EmptyStateProps) => (
+  <View style={styles.emptyStateContainer}>
+    <Text style={styles.emptyStateTitle}>No more profiles</Text>
+    <Text style={styles.emptyStateDescription}>
+      Check back later for new matches in your area.
+    </Text>
+    <Button
+      onPress={onRefresh}
+      style={styles.refreshButton}
+    >
+      Refresh
+    </Button>
+  </View>
+);
 
 export default function DiscoveryScreen() {
   const dispatch = useAppDispatch();
@@ -239,40 +258,28 @@ export default function DiscoveryScreen() {
     );
   };
 
-  const renderEmptyState = () => (
-    <View style={styles.emptyStateContainer}>
-      <Text style={styles.emptyStateTitle}>No more profiles</Text>
-      <Text style={styles.emptyStateDescription}>
-        We've run out of profiles to show you. Pull down to refresh or adjust your preferences.
-      </Text>
-      <Button
-        title="Refresh"
-        onPress={handleRefresh}
-        gradient
-        style={styles.refreshButton}
-      />
-    </View>
-  );
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Discover</Text>
       </View>
       
-      <FlatList
-        data={discoveryFeed}
-        renderItem={renderProfileItem}
-        keyExtractor={item => item}
-        contentContainerStyle={styles.contentContainer}
-        showsVerticalScrollIndicator={false}
-        snapToInterval={PROFILE_HEIGHT}
-        snapToAlignment="start"
-        decelerationRate="fast"
-        onRefresh={handleRefresh}
-        refreshing={refreshing}
-        ListEmptyComponent={renderEmptyState}
-      />
+      {discoveryFeed.length > 0 ? (
+        <FlatList
+          data={discoveryFeed}
+          renderItem={renderProfileItem}
+          keyExtractor={item => item}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.profilesList}
+          ListEmptyComponent={() => <EmptyState onRefresh={handleRefresh} />}
+          onRefresh={handleRefresh}
+          refreshing={refreshing}
+        />
+      ) : (
+        <EmptyState onRefresh={handleRefresh} />
+      )}
     </SafeAreaView>
   );
 }
@@ -434,5 +441,8 @@ const styles = StyleSheet.create({
   refreshButton: {
     marginTop: 20,
     width: 200,
+  },
+  profilesList: {
+    flexGrow: 1,
   },
 });
